@@ -15,7 +15,7 @@ while(is_numeric($resp) || $resp!=0){
             $tipo = trim(fgets(STDIN));
             echo "Ingrese el número de documento \n";
             $dni = trim(fgets(STDIN));
-            $p = new Persona;
+            $p = new Persona ($nombre,$apellido,$tipo,$dni);
             cargarNuevoUsuario($p);
         case 2:
             //

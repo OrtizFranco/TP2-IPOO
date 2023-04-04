@@ -1,7 +1,8 @@
 <?php
+
 $usuarios = [];
-function cargarNuevoUsuario($persona){
-    arraypush($usuarios,$persona);
+function cargarNuevoUsuario($objpersona){
+    arraypush($usuarios,$objpersona);
     echo "Carga exitosa!";
 }
 
