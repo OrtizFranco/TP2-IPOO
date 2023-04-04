@@ -1,8 +1,12 @@
 <?php
+include 'testPersona.php';
+include 'cuentabancaria.php';
+include 'funciones.php';
 $personas=[];
-function cargarNuevoUsuario($objPersona){
+function cargarPersona($objPersona){
     array_push($personas,$objPersona);
     echo "Usuario creado exitosamente";
+    return $personas;
 }
 class Persona{
     private $nombre;

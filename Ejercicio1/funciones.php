@@ -1,10 +1,11 @@
 <?php
 include 'personaClass.php';
 include 'cuentabancaria.php';
+include 'testPersona.php';
 function mainMenu(){
     echo "Bienvenid@!!!<\n>";
     echo "¿Qué operación desea realizar?<\n>";
-    echo "1 para crear un nuevo usuario \n";
+    echo "Ingresar 1 para crear un nuevo usuario \n";
     echo "Ingresar 2 para ver los usuarios existentes<\n>";
     echo "Ingresar 3 para modificar algún pasajero<\n>";
     echo "Ingrese 4 para crear una cuenta bancaria<\n>";
@@ -25,7 +26,7 @@ function pedirDatos(){
             echo "Ingrese el número de documento \n";
             $dni = trim(fgets(STDIN));
             $p = new Persona($nombre,$apellido,$tipo,$dni);
-            cargarNuevoUsuario($p);
+            $arrayP=cargarPersona($p);
 }
 
 ?>
