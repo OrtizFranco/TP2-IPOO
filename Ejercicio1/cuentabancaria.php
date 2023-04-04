@@ -1,5 +1,5 @@
 <?php
-
+include 'persona.php';
 class CuentaBancaria{
     private $numDeCuenta;
     private $personaTitular;

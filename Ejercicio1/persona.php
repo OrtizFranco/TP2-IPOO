@@ -1,4 +1,10 @@
 <?php
+$usuarios = [];
+function cargarNuevoUsuario($persona){
+    arraypush($usuarios,$persona);
+    echo "Carga exitosa!";
+}
+
 class Persona{
     private $nombre;
     private $apellido;
