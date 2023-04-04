@@ -10,7 +10,7 @@ function mainMenu(){
     echo "Ingresar 3 para modificar algún pasajero<\n>";
     echo "Ingrese 4 para crear una cuenta bancaria<\n>";
     $resp = trim(fgets(STDIN));
-    while( resp!=1 || resp!=2 || resp!=3 || resp!=4 ){
+    while( $resp!=1 || $resp!=2 || $resp!=3 || $resp!=4 ){
         echo "Debe ingresar un valor válido";
         $resp = trim(fgets(STDIN));
     }
@@ -28,5 +28,10 @@ function pedirDatos(){
             $p = new Persona($nombre,$apellido,$tipo,$dni);
             $arrayP=cargarPersona($p);
 }
-
+$personas=[];
+function cargarPersona($objPersona){
+    array_push($personas,$objPersona);
+    echo "Usuario creado exitosamente";
+    return $personas;
+}
 ?>
