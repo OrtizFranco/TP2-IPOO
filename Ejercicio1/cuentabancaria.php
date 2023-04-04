@@ -2,8 +2,7 @@
 
 
 /*
-include 'testPersona.php';
-include 'personaClass.php';
+
 class CuentaBancaria{
     private $numDeCuenta;
     private $personaTitular;
