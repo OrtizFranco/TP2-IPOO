@@ -1,18 +1,16 @@
 <?php
-
-$usuarios = [];
-function cargarNuevoUsuario($objpersona){
-    arraypush($usuarios,$objpersona);
-    echo "Carga exitosa!";
+$personas=[];
+function cargarNuevoUsuario($objPersona){
+    array_push($personas,$objPersona);
+    echo "Usuario creado exitosamente";
 }
-
 class Persona{
     private $nombre;
     private $apellido;
     private $tipo;
     private $dni;
 
-    public function __constructor($nombre,$apellido,$tipo,$dni){
+    public function __construct($nombre,$apellido,$tipo,$dni){
         $this-> nombre = $nombre;
         $this-> apellido = $apellido;
         $this-> tipo = $tipo;

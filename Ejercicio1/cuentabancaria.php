@@ -1,11 +1,11 @@
 <?php
-include 'persona.php';
+include 'personaClass.php';
 class CuentaBancaria{
     private $numDeCuenta;
     private $personaTitular;
     private $saldoActual;
     private $interesAnual;
-    public function __constructor($nroCuenta,$objPersona,$saldoActual,$interesAnual){
+    public function __construct($nroCuenta,$objPersona,$saldoActual,$interesAnual){
         $this->numDeCuenta = $nroCuenta;
         $this -> personaTitular=$objPersona;
         $this->saldoActual=$saldoActual;

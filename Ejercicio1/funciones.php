@@ -1,4 +1,6 @@
 <?php
+include 'personaClass.php';
+include 'cuentabancaria.php';
 function mainMenu(){
     echo "Bienvenid@!!!<\n>";
     echo "¿Qué operación desea realizar?<\n>";
@@ -7,12 +9,23 @@ function mainMenu(){
     echo "Ingresar 3 para modificar algún pasajero<\n>";
     echo "Ingrese 4 para crear una cuenta bancaria<\n>";
     $resp = trim(fgets(STDIN));
-    while(!is_numeric($resp) || resp!=1 || resp!=2 || resp!=3 || resp!=4){
+    while( resp!=1 || resp!=2 || resp!=3 || resp!=4 ){
         echo "Debe ingresar un valor válido";
         $resp = trim(fgets(STDIN));
     }
     return $resp;
 }
-
+function pedirDatos(){
+            echo "Ingrese el nombre \n";
+            $nombre = trim(fgets(STDIN));
+            echo "Ingrese el apellido \n";
+            $apellido = trim(fgets(STDIN));
+            echo "Ingrese el tipo de documento \n";
+            $tipo = trim(fgets(STDIN));
+            echo "Ingrese el número de documento \n";
+            $dni = trim(fgets(STDIN));
+            $p = new Persona($nombre,$apellido,$tipo,$dni);
+            cargarNuevoUsuario($p);
+}
 
 ?>
