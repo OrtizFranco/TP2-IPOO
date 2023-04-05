@@ -7,9 +7,10 @@ function mainMenu(){
     echo "Ingresar 2 para ver los usuarios existentes<\n>";
     echo "Ingresar 3 para modificar algún usuario<\n>";
     echo "Ingrese 4 para crear una cuenta bancaria<\n>";
-    echo "Ingrese 5 para eliminar o modificar una cuenta bancaria";
+    echo "Ingrese 5 para eliminar o modificar una cuenta bancaria \n";
+    echo "Ingrese 0 para salir del programa";
     $resp = trim(fgets(STDIN));
-    while( $resp!=1 && $resp!=2 && $resp!=3 && $resp!=4 ){
+    while( $resp!=1 && $resp!=2 && $resp!=3 && $resp!=4 && $resp!=0){
         echo "Debe ingresar un valor válido \n";
         $resp = trim(fgets(STDIN));
     }
@@ -26,22 +27,19 @@ function pedirDatos($personas){
             echo "Ingrese el número de documento \n";
             $dni = trim(fgets(STDIN));
             $p = new Persona($nombre,$apellido,$tipo,$dni);
-            $personas=cargarPersona($personas,$p);
+            array_push($personas,$p);
+            echo "Usuario creado exitosamente\n";
             return $personas;
+            
 
 }
 
-function cargarPersona($personas,$objPersona){
-    array_push($personas,$objPersona);
-    echo "Usuario creado exitosamente";
-    return $personas;
-}
 //case 2 mostrar datos de personas
-function mostrarDatos($arrayPersonas){
+function mostrarDatos($personas){
     echo "Usuarios cargados en el sistema: \n";
     for ($i=0;$i<count($personas);$i++){
         $p = $personas[$i];
-        echo "Usuario N°".$i. ": \n";
+        echo "Usuario N°".$i+1 . ": \n";
         echo $p;
     }
 }
@@ -58,7 +56,7 @@ function setUsuario($personas){
 }
 function pedirUsuario($personas,$p){
     
-    echo "Ingrese el número de usuario a modificar o 0(cero) para terminar";
+    echo "Ingrese el número de usuario a modificar o 0(cero) para terminar \n";
     $n=trim(fgets(STDIN));
     $n=$n-1;
     if($n>=0 && $n<=count($personas)){
@@ -120,7 +118,6 @@ function crearCuentaBancaria($personas,$cuentasB){
     $n=$n-1;
     if($n>=0 && $n<count($personas)){
         $p = $personas[$n];
-
         if (!tieneCuenta($p,$cuentasB)){
         echo "Ingrese un numero de cuenta \n";
         $numC= trim(fgets(STDIN));
@@ -128,10 +125,11 @@ function crearCuentaBancaria($personas,$cuentasB){
         $interes=trim(fgets(STDIN));
         $newCuenta = new CuentaBancaria ($numC,$p,0,$interes);
         array_push($cuentasB,$newCuenta);
+        
         }
         
     }
-
+    return $cuentasB;
 }
 //verifica si un usuario ya tiene cuenta bancaria o no
 function tieneCuenta($persona,$cuentasB){
@@ -144,6 +142,7 @@ function tieneCuenta($persona,$cuentasB){
             $dniT = $pTitular->getDni();
             if ($documento==$dniT){
                 $tieneCuenta=true;
+                echo "Error: Ese usuario ya posee una cuenta\n";
             }else{
                 $tieneCuenta=false;
             }

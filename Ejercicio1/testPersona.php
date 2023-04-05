@@ -12,12 +12,19 @@ while($resp!=0){
     switch($resp){
         case 1:
             $arrayPersonas=pedirDatos($arrayPersonas);
+            break;
         case 2:
             mostrarDatos($arrayPersonas);
+            break;
         case 3:
-            $arrayPersonas=setUsuarios($arrayPersonas);
+            $arrayPersonas=setUsuario($arrayPersonas);
+            break;
         case 4:
             $cuentasBancarias=crearCuentaBancaria($arrayPersonas,$cuentasBancarias);
+            break;
+        case 5:
+            
+            break;
         default:
             echo "";
     }

@@ -42,7 +42,7 @@ class Persona{
     }
     public function __toString(){
         $txt = "Nombre y apellido: ".$this->nombre." ".$this->apellido."\n
-        \t Tipo de documento y n° ".$this->tipo." ".$this->dni();
+        \t Tipo de documento y n° ".$this->tipo." ".$this->dni. "\n";
         return $txt;
     }
 }
