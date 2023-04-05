@@ -23,10 +23,10 @@ while($resp!=0){
             $cuentasBancarias=crearCuentaBancaria($arrayPersonas,$cuentasBancarias);
             break;
         case 5:
-            
+            $cuentasBancarias=modificarCuentas($cuentasBancarias);
             break;
         default:
-            echo "";
+            echo "Ingrese un valor entre 0 y 5 \n";
     }
     
 }

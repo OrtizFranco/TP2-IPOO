@@ -136,6 +136,7 @@ function tieneCuenta($persona,$cuentasB){
     if(count($cuentasB)>=1){
 
         $documento = $persona->getDni();
+        $tieneCuenta=false;
         for ($i=0;$i<count($cuentasB);$i++){
             $cuenta = $cuentasB[$i];
             $pTitular = $cuenta->getTitular();
@@ -143,12 +144,42 @@ function tieneCuenta($persona,$cuentasB){
             if ($documento==$dniT){
                 $tieneCuenta=true;
                 echo "Error: Ese usuario ya posee una cuenta\n";
-            }else{
-                $tieneCuenta=false;
             }
         }
     }
     return $tieneCuenta;
     
 }
+//modifica o elimina una cuenta bancaria
+
+function modificarCuentas($cuentasB){
+    if (!isset($cuentasB)){
+        echo "Aún no ha creado ninguna cuenta bancaria \n";
+    }else{
+        for ($i=0;$i<count($cuentasB);$i++){
+            echo "Cuenta n°".($i+1)."\n";
+            echo $cuentasB[$i];
+        }
+        echo "Ingrese el n° de cuenta a modificar/borrar \n";
+        $num=trim(fgets(STDIN));
+        if ($num>=0 && $num<count($cuentasB)){
+            echo "Ingrese 1 para modificar los datos \n";
+            echo "Ingrese 2 para borrar la cuenta \n";
+            $eleccion=trim(fgets(STDIN));
+            switch ($eleccion){
+                case 1:
+                    //
+                    
+                    break;
+                    case 2:
+                        // 
+                        break;
+            }
+        }else{
+            echo "Número de cuenta invalido\n";
+        }
+    }
+}
+
+
 ?>
