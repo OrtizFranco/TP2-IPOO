@@ -1,8 +1,5 @@
 <?php
 
-
-/*
-
 class CuentaBancaria{
     private $numDeCuenta;
     private $personaTitular;
@@ -72,5 +69,5 @@ class CuentaBancaria{
 
 }
 
-*/
+
 ?>

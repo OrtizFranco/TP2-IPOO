@@ -1,9 +1,4 @@
 <?php
-$personas=[];
-function cargarPersona($objPersona){
-    array_push($personas,$objPersona);
-    echo "Usuario creado exitosamente";
-}
 
 class Persona{
     private $nombre;
@@ -44,6 +39,11 @@ class Persona{
     }
     public function setDni($dni){
         $this->dni= $dni;
+    }
+    public function __toString(){
+        $txt = "Nombre y apellido: ".$this->nombre." ".$this->apellido."\n
+        \t Tipo de documento y n° ".$this->tipo." ".$this->dni();
+        return $txt;
     }
 }
 
