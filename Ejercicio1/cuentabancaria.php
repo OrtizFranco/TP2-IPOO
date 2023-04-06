@@ -36,6 +36,9 @@ class CuentaBancaria{
     public function getTitular(){
         return $this->personaTitular;
     }
+    public function __destruct(){
+        echo $this. " instancia destruída \n";
+    }
     public function setTitular($objPersona){
         $this->personaTitular= $objPersona;
     }

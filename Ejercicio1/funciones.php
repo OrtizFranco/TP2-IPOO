@@ -162,21 +162,73 @@ function modificarCuentas($cuentasB){
         }
         echo "Ingrese el n° de cuenta a modificar/borrar \n";
         $num=trim(fgets(STDIN));
+        $num=$num-1;
         if ($num>=0 && $num<count($cuentasB)){
             echo "Ingrese 1 para modificar los datos \n";
             echo "Ingrese 2 para borrar la cuenta \n";
             $eleccion=trim(fgets(STDIN));
             switch ($eleccion){
                 case 1:
-                    //
-                    
+                    //$nroCuenta,$objPersona,$saldoActual,$interesAnual
+                    do{
+                        echo "¿desea modificar? \n";
+                        echo "opción 1- cambiar número de cuenta \n";
+                        echo "opción 2- ingresar dinero de la cuenta \n";
+                        echo "opción 3- extraer dinero de la cuenta";
+                        echo "opción 4- interés de la cuenta \n";
+                        $op = trim(fgets(STDIN));
+                        switch($op){
+                            case 1:
+                                echo "Ingrese el nuevo número de cuenta \n";
+                                $numC= trim(fgets(STDIN));
+                                $cuentasB[$num]->setNumDeCuenta($numC);
+                                break;
+                                case 2:
+                                    echo "Ingrese el nuevo monto a ingresar \n";
+                                    $monto= trim(fgets(STDIN));
+                                    $saldo=$cuentasB[$num]->getSaldoActual();
+                                    $saldo+=$monto;
+                                    $cuentasB[$num]->setSaldoActual($saldo);
+                                    break;
+                                    case 3:
+                                        $saldo=$cuentasB[$num]->getSaldoActual();
+                                        echo "¿Cuánto dinero desea extraer? \n";
+                                        echo "Saldo actual $".$saldo."\n";
+                                        $monto= trim(fgets(STDIN));
+                                        if($monto<=$saldo){
+                                            echo "Operación exitosa\n";
+                                            $saldo-= $monto;
+                                            $cuentasB[$num]->setSaldoActual($saldo);
+                                        }else{
+                                            echo "El monto ingresado no es válido";
+
+                                        }
+                                        break;
+                                        case 4:
+                                            echo "Ingrese un nuevo interés a aplicar \n";
+                                            $interes= trim(fgets(STDIN));
+                                            $cuentasB[$num]->setInteresAnual($interes);
+                                            break;
+                                            default:
+                                            echo "opción incorrecta";
+                                            break;
+                        }
+                        echo "Necesita realizar otra operación? ingresar: S ó N \n";
+                        $resp = trim(fgets(STDIN));
+                    }while($resp=="s" || $resp=="S");
                     break;
                     case 2:
-                        // 
+                        // borrar una cuenta
+                        echo $cuentasB[$num]." será destruída, ¿continuar? ingrese S ó N\n";
+                        $resp =trim(fgets(STDIN));
+                        if($resp=="s" || $resp == "S"){
+                            unset($cuentasB[$num]);
+                            echo "cuenta eliminada \n";
+                        }
                         break;
             }
         }else{
-            echo "Número de cuenta invalido\n";
+            echo "Número de cuenta invalido \n";
         }
     }
 }
