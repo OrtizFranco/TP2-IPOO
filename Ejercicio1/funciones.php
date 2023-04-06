@@ -8,9 +8,9 @@ function mainMenu(){
     echo "Ingresar 3 para modificar algún usuario<\n>";
     echo "Ingrese 4 para crear una cuenta bancaria<\n>";
     echo "Ingrese 5 para eliminar o modificar una cuenta bancaria \n";
-    echo "Ingrese 0 para salir del programa";
+    echo "Ingrese 0 para salir del programa\n";
     $resp = trim(fgets(STDIN));
-    while( $resp!=1 && $resp!=2 && $resp!=3 && $resp!=4 && $resp!=0){
+    while( $resp!=1 && $resp!=2 && $resp!=3 && $resp!=4 && $resp!=5 && $resp!=0){
         echo "Debe ingresar un valor válido \n";
         $resp = trim(fgets(STDIN));
     }
@@ -174,7 +174,7 @@ function modificarCuentas($cuentasB){
                         echo "¿desea modificar? \n";
                         echo "opción 1- cambiar número de cuenta \n";
                         echo "opción 2- ingresar dinero de la cuenta \n";
-                        echo "opción 3- extraer dinero de la cuenta";
+                        echo "opción 3- extraer dinero de la cuenta \n";
                         echo "opción 4- interés de la cuenta \n";
                         $op = trim(fgets(STDIN));
                         switch($op){

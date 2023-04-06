@@ -58,15 +58,15 @@ class CuentaBancaria{
             $this->saldoActual -= $cant;
             return true;
         }else{
-            return "No tiene el saldo suficiente para realizar la operación";
+            return "No tiene el saldo suficiente para realizar la operación\n";
         }
     }
     public function __toString(){
-        $objTitular=$this->titular;
-        $txt = "Nro de cuenta: ". $this->getNumDeCuenta. "\n
-         saldo actual: ". $this->getSaldoActual. "\n
-          documento unico: ". $objTitular. "\n
-           interes anual: ". $this->getInteresAnual;
+        $objTitular=$this->personaTitular;
+        $txt = "Nro de cuenta: ". $this->getNumDeCuenta(). "\n
+         saldo actual: ". $this->getSaldoActual(). "\n
+          documento unico: ". $objTitular->getDni(). "\n
+           interes anual: ". $this->getInteresAnual()."\n";
         return $txt;
     }
 

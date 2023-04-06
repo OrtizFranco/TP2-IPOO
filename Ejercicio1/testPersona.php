@@ -6,6 +6,8 @@ $arrayPersonas=[];
 $cuentasBancarias=[];
 $p=new Persona("Franco","Ortiz","DNI",40182652);
 array_push($arrayPersonas,$p);
+$cuenta1 = new CuentaBancaria (23423, $p, 10000, 10);
+array_push($cuentasBancarias,$cuenta1);
 $resp=1;
 while($resp!=0){
     $resp=mainMenu();
@@ -25,8 +27,7 @@ while($resp!=0){
         case 5:
             $cuentasBancarias=modificarCuentas($cuentasBancarias);
             break;
-        default:
-            echo "Ingrese un valor entre 0 y 5 \n";
+
     }
     
 }
