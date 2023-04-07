@@ -5,8 +5,8 @@ include 'cuentabancaria.php';
 $arrayPersonas=[];
 $cuentasBancarias=[];
 $p=new Persona("Franco","Ortiz","DNI",40182652);
-array_push($arrayPersonas,$p);
-$cuenta1 = new CuentaBancaria (23423, $p, 10000, 10);
+array_push($arrayPersonas,$p); $nro=34234; $saldo=199988888; $ia=10;
+$cuenta1 = new CuentaBancaria ($nro, $p, $saldo,$ia);
 array_push($cuentasBancarias,$cuenta1);
 $resp=1;
 while($resp!=0){

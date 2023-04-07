@@ -52,7 +52,7 @@ function setUsuario($personas){
         echo $p;
     }
     $personas=pedirUsuario($personas);
-    
+    return $personas;
 }
 
 function pedirUsuario($personas){

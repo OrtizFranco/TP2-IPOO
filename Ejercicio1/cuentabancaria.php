@@ -4,12 +4,12 @@ class CuentaBancaria{
     private $numDeCuenta;
     private $personaTitular;
     private $saldoActual;
-    private $interesAnual;
+    private $interes;
     public function __construct($nroCuenta,$objPersona,$saldoActual,$iAnual){
         $this->numDeCuenta = $nroCuenta;
         $this -> personaTitular=$objPersona;
         $this->saldoActual=$saldoActual;
-        $this->$interesAnual=$iAnual;
+        $this->$interes=$iAnual;
     }
     //metodos de acceso
     public function getNumDeCuenta(){
@@ -27,10 +27,10 @@ class CuentaBancaria{
     }
     //
     public function getInteresAnual(){
-        return $this->interesAnual;
+        return $this->interes;
     }
     public function setInteresAnual($IA){
-        $this->interesAnual= $IA;
+        $this->interes= $IA;
     }
     //
     public function getTitular(){
