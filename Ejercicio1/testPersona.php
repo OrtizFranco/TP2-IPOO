@@ -12,6 +12,8 @@ $resp=1;
 while($resp!=0){
     $resp=mainMenu();
     switch($resp){
+        case 0:
+            break;
         case 1:
             $arrayPersonas=pedirDatos($arrayPersonas);
             break;
@@ -27,7 +29,9 @@ while($resp!=0){
         case 5:
             $cuentasBancarias=modificarCuentas($cuentasBancarias);
             break;
-
+        default:
+        echo "opción inválida";
+        break;
     }
     
 }

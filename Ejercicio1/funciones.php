@@ -51,16 +51,17 @@ function setUsuario($personas){
         echo "Usuario N°".$i+1 . ": \n";
         echo $p;
     }
-    $personas=pedirUsuario($personas,$p);
+    $personas=pedirUsuario($personas);
     
 }
-function pedirUsuario($personas,$p){
+
+function pedirUsuario($personas){
     
     echo "Ingrese el número de usuario a modificar o 0(cero) para terminar \n";
     $n=trim(fgets(STDIN));
     $n=$n-1;
     if($n>=0 && $n<=count($personas)){
-    $p = $personas[$i];
+    $p = $personas[$n];
     echo "Ingrese 1 para modificar todos los datos \n";
     echo "Ingrese 2 para modificar nombre \n";
     echo "Ingrese 3 para modificar apellido \n";
@@ -84,6 +85,7 @@ function pedirUsuario($personas,$p){
             echo "Ingrese número de documento \n";
             $atributo=trim(fgets(STDIN));
             $p->SetDni($atributo);
+            break;
         case 2:
             echo "Ingrese nombre \n";
             $atributo=trim(fgets(STDIN));
@@ -92,16 +94,19 @@ function pedirUsuario($personas,$p){
                 echo "Ingrese apellido \n";
                 $atributo=trim(fgets(STDIN));
                 $p->setApellido($atributo);
+                break;
                 case 4:
                  echo "Ingrese tipo de documento \n";
                  $atributo=trim(fgets(STDIN));
                  $p->SetTipo($atributo);
+                 break;
                  case 5:
                     echo "Ingrese número de documento \n";
                     $atributo=trim(fgets(STDIN));
                     $p->SetDni($atributo);
+                    break;
     }
-    $personas[$i]=$p;
+    $personas[$n]=$p;
 }
 return $personas;
 }
@@ -123,7 +128,8 @@ function crearCuentaBancaria($personas,$cuentasB){
         $numC= trim(fgets(STDIN));
         echo "Ingrese el intés anual de la cuenta \n";
         $interes=trim(fgets(STDIN));
-        $newCuenta = new CuentaBancaria ($numC,$p,0,$interes);
+        $saldo=0;
+        $newCuenta = new CuentaBancaria ($numC,$p,$saldo,$interes);
         array_push($cuentasB,$newCuenta);
         
         }
@@ -151,7 +157,6 @@ function tieneCuenta($persona,$cuentasB){
     
 }
 //modifica o elimina una cuenta bancaria
-
 function modificarCuentas($cuentasB){
     if (!isset($cuentasB)){
         echo "Aún no ha creado ninguna cuenta bancaria \n";

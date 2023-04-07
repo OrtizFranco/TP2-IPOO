@@ -5,11 +5,11 @@ class CuentaBancaria{
     private $personaTitular;
     private $saldoActual;
     private $interesAnual;
-    public function __construct($nroCuenta,$objPersona,$saldoActual,$interesAnual){
+    public function __construct($nroCuenta,$objPersona,$saldoActual,$iAnual){
         $this->numDeCuenta = $nroCuenta;
         $this -> personaTitular=$objPersona;
         $this->saldoActual=$saldoActual;
-        $this->$interesAnual=$interesAnual;
+        $this->$interesAnual=$iAnual;
     }
     //metodos de acceso
     public function getNumDeCuenta(){
@@ -36,9 +36,9 @@ class CuentaBancaria{
     public function getTitular(){
         return $this->personaTitular;
     }
-    public function __destruct(){
+   /* public function __destruct(){
         echo $this. " instancia destruída \n";
-    }
+    }*/
     public function setTitular($objPersona){
         $this->personaTitular= $objPersona;
     }
@@ -62,10 +62,10 @@ class CuentaBancaria{
         }
     }
     public function __toString(){
-        $objTitular=$this->personaTitular;
+       // $objTitular=$this->personaTitular;
         $txt = "Nro de cuenta: ". $this->getNumDeCuenta(). "\n
          saldo actual: ". $this->getSaldoActual(). "\n
-          documento unico: ". $objTitular->getDni(). "\n
+          documento unico: ". $this->personaTitular->getDni(). "\n
            interes anual: ". $this->getInteresAnual()."\n";
         return $txt;
     }
