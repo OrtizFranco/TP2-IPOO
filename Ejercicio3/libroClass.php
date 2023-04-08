@@ -21,6 +21,24 @@ public function __construct($ISBN,$titulo,$anioDeEdicion,$editorial,$autor){
     $this-> autor = $autor;
 }
 // metodos de acceso
+
+public function setNroDePaginas($nro){
+    $this->nroPaginas=$nro;
+}
+
+public function getNroDePaginas(){
+    return $this->nroPaginas;
+}
+//
+public function setSinopsis($txt){
+    $this->sinopsis=$txt;
+}
+
+public function getSinopsis(){
+    return $this->sinopsis;
+}
+
+
 public function setISBN($ISBN){
     $this->ISBN=$ISBN;
 }
@@ -58,7 +76,7 @@ public function getAutor(){
     return $this->autor;
 }
 public function __toString(){
-    $txt= "El libro ".$tihs->getTitulo()." del autor ".$this->getNomYApeDeAutor()." pertenece a la editorial ".$this->getEditorial()."\n
+    $txt= "El libro ".$tihs->getTitulo()." del autor ".$this->autor->getNombre()." pertenece a la editorial ".$this->getEditorial()."\n
     * año de edición: ".$this->getAnioDeEdicion()."\n
     * ISBN: ".$this->getISBN();
     return $txt;
